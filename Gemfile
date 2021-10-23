@@ -15,10 +15,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'ransack'
 gem 'acts-as-taggable-on'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-rails'
+  gem 'rspec-rails'
   gem 'factory_bot_rails'
 end
 

@@ -1,0 +1,2 @@
+class TabCollection < ApplicationRecord
+end
