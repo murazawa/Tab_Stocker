@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_23_154631) do
+ActiveRecord::Schema.define(version: 2021_10_23_172020) do
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2021_10_23_154631) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "my_links", force: :cascade do |t|
+    t.string "titlee", null: false
+    t.string "description"
+    t.text "urle", null: false
+    t.boolean "status", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "tab_collections", force: :cascade do |t|
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -39,10 +48,6 @@ ActiveRecord::Schema.define(version: 2021_10_23_154631) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "title", null: false
-    t.string "description"
-    t.boolean "status", default: false, null: false
-    t.text "url", null: false
     t.string "name", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
