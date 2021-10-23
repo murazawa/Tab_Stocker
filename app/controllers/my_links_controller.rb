@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class MyLinksController < ApplicationController
   before_action :authenticate_user!
   def index
   end

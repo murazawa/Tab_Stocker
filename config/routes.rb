@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   
   }
-  resources :users, only: [:index, :show, :edit, :update, :destroy]
+  resources :my_links, only: [:index, :show, :edit, :update, :destroy]
 
 end
