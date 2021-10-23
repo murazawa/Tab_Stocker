@@ -16,6 +16,7 @@ gem 'devise'
 gem 'ransack'
 gem 'acts-as-taggable-on'
 gem 'kaminari'
+gem 'devise-i18n'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -30,7 +31,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop-rails'
-  
+
 end
 
 group :test do
