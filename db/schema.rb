@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_23_172020) do
+ActiveRecord::Schema.define(version: 2021_10_24_024415) do
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
@@ -27,11 +27,19 @@ ActiveRecord::Schema.define(version: 2021_10_23_172020) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "my_links", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "description"
+  create_table "link_groups", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "my_link_id"
     t.string "url_title", null: false
     t.text "url", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "my_links", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title", null: false
+    t.string "description"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

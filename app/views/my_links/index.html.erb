@@ -1,6 +1,6 @@
 <h1>あなたのリンク集</h1>
 
-<%= form_with model: @links, url: my_links_path, method: :POST, local: true do |f| %>
+<%= form_with model: @link, url: my_links_path, method: :POST, local: true do |f| %>
   <div class="field">
     <%= f.label :"タイトル" %>
     <%= f.text_field :title, autofocus: true %>
@@ -20,3 +20,5 @@
   <%= link.title %>
   <%= link.description %>
 <% end %>
+      t.string :url_title , null:false
+      t.text :url, null:false
