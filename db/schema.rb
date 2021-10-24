@@ -28,10 +28,11 @@ ActiveRecord::Schema.define(version: 2021_10_23_172020) do
   end
 
   create_table "my_links", force: :cascade do |t|
-    t.string "titlee", null: false
+    t.string "title", null: false
     t.string "description"
-    t.text "urle", null: false
-    t.boolean "status", default: false, null: false
+    t.string "url_title", null: false
+    t.text "url", null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

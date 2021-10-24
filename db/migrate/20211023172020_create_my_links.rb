@@ -1,10 +1,11 @@
 class CreateMyLinks < ActiveRecord::Migration[6.1]
   def change
     create_table :my_links do |t|
-      t.string :titlee, null:false
+      t.string :title, null:false
       t.string :description
-      t.text :urle, null:false
-      t.boolean :status, default: false, null: false
+      t.string :url_title , null:false
+      t.text :url, null:false
+      t.integer :status, null: false, :default => 0
 
       t.timestamps
     end

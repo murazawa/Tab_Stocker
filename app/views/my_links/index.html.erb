@@ -1,2 +1,22 @@
-<h1>MyLinks#index</h1>
-<p>Find me in app/views/my_links/index.html.erb</p>
+<h1>あなたのリンク集</h1>
+
+<%= form_with model: @links, url: my_links_path, method: :POST, local: true do |f| %>
+  <div class="field">
+    <%= f.label :"タイトル" %>
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"説明" %>
+    <%= f.text_field :description, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "リンクタブ集を追加する" %>
+  </div>
+<% end %>
+
+<% @links.each do |link| %>
+  <%= link.title %>
+  <%= link.description %>
+<% end %>
