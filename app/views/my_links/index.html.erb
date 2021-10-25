@@ -17,8 +17,11 @@
 <% end %>
 
 <% @links.each do |link| %>
-  <%= link.title %>
+  <%= link_to link_group_path(link) do %>
+    <%= link.title %>
+  <% end %>
   <%= link.description %>
+  <%= link.status %>
+  <%= link_to "編集する", edit_my_link_path(link) %>
+  <%= link_to "削除する", my_link_path(link), method: :DELETE %>
 <% end %>
-      t.string :url_title , null:false
-      t.text :url, null:false

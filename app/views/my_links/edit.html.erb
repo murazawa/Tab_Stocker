@@ -1,0 +1,15 @@
+<%= form_with model: @link, url: my_link_path, method: :PATCH, local: true do |f| %>
+  <div class="field">
+    <%= f.label :"タイトル" %>
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :"説明" %>
+    <%= f.text_field :description, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "リンクタブ集を編集する" %>
+  </div>
+<% end %>
