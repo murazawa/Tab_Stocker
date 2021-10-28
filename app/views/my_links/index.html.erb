@@ -17,11 +17,11 @@
 <% end %>
 
 <% @links.each do |link| %>
-  <%= link_to link_group_path(link) do %>
-    <%= link.title %>
-  <% end %>
-  <%= link.description %>
-  <%= link.status %>
-  <%= link_to "編集する", edit_my_link_path(link) %>
-  <%= link_to "削除する", my_link_path(link), method: :DELETE %>
+<ul>
+  <li><%= link_to link_group_path(link) do %><%= link.title %><% end %></li>
+  <li><%= link.description %></li>
+  <li><%= link.status %></li>
+  <li><%= link_to "編集する", edit_my_link_path(link) %></li>
+  <li><%= link_to "削除する", my_link_path(link), method: :DELETE %></li>
+</ul>
 <% end %>
