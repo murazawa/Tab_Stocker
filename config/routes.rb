@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   root 'homes#top'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions'
+  }
+  resources :link_groups, only: [:show, :edit, :create, :update, :destroy]
+  resources :my_links, only: [:index, :edit, :create, :update, :destroy]
+
 end

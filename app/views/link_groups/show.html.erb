@@ -1,0 +1,21 @@
+<%= form_with model: @link, url: link_groups_path, method: :POST, local: true do |f| %>
+  <div class="field">
+    <%= f.label :"リンクタイトル" %>
+    <%= f.text_field :url_title, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"ストックするURL" %>
+    <%= f.text_field :url, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "リンクタブを追加する" %>
+  </div>
+<% end %>
+
+
+<% @links.each do |link| %>
+<%= link.url_title %>
+<%= link.url %>
+<% end %>
