@@ -16,6 +16,13 @@
 
 
 <% @links.each do |link| %>
-<%= link.url_title %>
-<%= link.url %>
+  <ul>
+    <li><%= link.url_title %></li>
+    <li><% if link.url.nil? %>
+          <%= link.url %>
+        <% else %>
+          <%= Rinku.auto_link(link.url, :all, 'target="_blank"').html_safe %>
+        <% end %>
+    </li>
+  </ul>
 <% end %>

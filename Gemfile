@@ -17,6 +17,8 @@ gem 'ransack'
 gem 'acts-as-taggable-on'
 gem 'kaminari'
 gem 'devise-i18n'
+gem 'webpacker', '~> 4.0'
+gem 'bootstrap'
 
 group :development, :test do
   gem 'byebug', platform: :mri
