@@ -1,14 +1,19 @@
 class LinkGroupsController < ApplicationController
+
   def show
     @link = LinkGroup.new
-    @links = LinkGroup.all
+    @links = LinkGroup.where(params[:link_group_id])
   end
+  
   def create
     @link = LinkGroup.new(link_group_params)
-    @link.user_id = current_user.id
-    @link.my_link_id = params[:my_link_id]
-    @link.save
+    @link = params[:my_link_id]
+    # binding.pry
+    if @link.save!
       redirect_back(fallback_location: root_path)
+    else
+      root_path
+    end
   end
 
 

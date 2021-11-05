@@ -3,7 +3,13 @@ class MyLinksController < ApplicationController
   def index
     @links = MyLink.all
     @link = MyLink.new
-
+    @user = current_user
+  end
+  
+  def show
+    @links = MyLink.where(params[:id])
+    @link = MyLink.new
+    @user = current_user
   end
 
   def edit
