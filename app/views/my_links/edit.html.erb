@@ -8,8 +8,19 @@
     <%= f.label :"説明" %>
     <%= f.text_field :description, autofocus: true %>
   </div>
-
+  
+  <div class="field">
+    <%= f.label :"公開" %>
+    <%= f.radio_button :status_id, 0, checked: "checked" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :"非公開" %>
+    <%= f.radio_button :status_id, 1 %>
+  </div>
+  
   <div class="actions">
     <%= f.submit "リンクタブ集を編集する" %>
   </div>
+
 <% end %>

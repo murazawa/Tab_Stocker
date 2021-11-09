@@ -1,15 +1,15 @@
 class MyLinksController < ApplicationController
   before_action :authenticate_user!
+  
   def index
-    @links = MyLink.all
-    @link = MyLink.new
-    @user = current_user
+    @my_link = MyLink.new
+    # @my_links = MyLink.where(id: current_user.id)
+    @my_links = MyLink.all
   end
   
   def show
-    @links = MyLink.where(params[:id])
-    @link = MyLink.new
-    @user = current_user
+    @my_link = MyLink.find(params[:id])
+    @link_group = LinkGroup.new
   end
 
   def edit
@@ -17,18 +17,17 @@ class MyLinksController < ApplicationController
   end
 
   def create
-    @link = MyLink.new(my_link_params)
-    if @link.save
+    @my_link = MyLink.new(my_link_params)
+    if @my_link.save
       redirect_to my_links_path
     else
-      @links = MyLink.all
       render :index
     end
   end
 
   def update
-    @link = MyLink.find(params[:id])
-    @link.update(my_link_params)
+    @my_link = MyLink.find(params[:id])
+    @my_link.update(my_link_params)
     redirect_to my_links_path
   end
 
@@ -40,7 +39,12 @@ class MyLinksController < ApplicationController
 
   private
   def my_link_params
-    params.require(:my_link).permit(:title, :description)
+    
+    # -----------------
+    p
+    # -----------------
+    # binding.pry
+    params.require(:my_link).permit(:title, :description, :status_id)
   end
 
 end

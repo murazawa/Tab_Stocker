@@ -1,15 +1,9 @@
 class LinkGroupsController < ApplicationController
-
-  def show
-    @link = LinkGroup.new
-    @links = LinkGroup.where(params[:link_group_id])
-  end
   
   def create
-    @link = LinkGroup.new(link_group_params)
-    @link = params[:my_link_id]
+    @link_group = LinkGroup.new(link_group_params)
     # binding.pry
-    if @link.save!
+    if @link_group.save!
       redirect_back(fallback_location: root_path)
     else
       root_path
@@ -19,6 +13,6 @@ class LinkGroupsController < ApplicationController
 
   private
   def link_group_params
-    params.require(:link_group).permit(:url, :url_title, :id)
+    params.require(:link_group).permit(:url, :url_title, :my_link_id)
   end
 end

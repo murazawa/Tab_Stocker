@@ -1,27 +1,34 @@
-<h1>あなたのリンク集</h1>
-
-<%= form_with model: @link, url: my_links_path, method: :POST, local: true do |f| %>
+<%= form_with model: @link_group, url: link_groups_path, method: :POST, local: true do |f| %>
+  <%= f.hidden_field :my_link_id, :value => @my_link.id %>
   <div class="field">
-    <%= f.label :"タイトル" %>
-    <%= f.text_field :title, autofocus: true %>
+    <%= f.label :"リンクタイトル" %>
+    <%= f.text_field :url_title, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :"説明" %>
-    <%= f.text_field :description, autofocus: true %>
+    <%= f.label :"ストックするURL" %>
+    <%= f.text_field :url, autofocus: true %>
   </div>
 
   <div class="actions">
-    <%= f.submit "リンクタブ集を追加する" %>
+    <%= f.submit "リンクタブを追加する" %>
   </div>
 <% end %>
 
-<% @links.each do |link| %>
-<ul>
-  <li><%= link_to link_group_path(link) do %><%= link.title %><% end %></li>
-  <li><%= link.description %></li>
-  <li><%= link.status %></li>
-  <li><%= link_to "編集する", edit_my_link_path(link) %></li>
-  <li><%= link_to "削除する", my_link_path(link), method: :DELETE %></li>
-</ul>
+
+<% @my_link.link_groups.each do |link_group| %>
+  <ul>
+    <li><%= link_group.url_title %></li>
+    <li><% if link_group.url.nil? %>
+          <%= link_group.url %>
+        <% else %>
+          <%= Rinku.auto_link(link_group.url, :all, 'target="_blank"').html_safe %>
+        <% end %>
+    </li>
+    <li><%= link_to "編集する", edit_link_group_path %></li>
+  </ul>
 <% end %>
+[Ctrl]キーを押しながらリンクをクリックする
+マウスのホイールボタンでリンクをクリックする
+リンクを右クリックし、「新しいタブで開く」をクリックする
+⌘押しながらクリック
