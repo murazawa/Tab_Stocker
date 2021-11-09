@@ -1,4 +1,4 @@
-<%= form_with model: @link, url: my_link_path, method: :PATCH, local: true do |f| %>
+<%= form_with model: @my_link, url: my_link_path, method: :PATCH, local: true do |f| %>
   <div class="field">
     <%= f.label :"タイトル" %>
     <%= f.text_field :title, autofocus: true %>
@@ -11,12 +11,12 @@
   
   <div class="field">
     <%= f.label :"公開" %>
-    <%= f.radio_button :status_id, 0, checked: "checked" %>
+    <%= f.radio_button :status, 0 %>
   </div>
   
   <div class="field">
     <%= f.label :"非公開" %>
-    <%= f.radio_button :status_id, 1 %>
+    <%= f.radio_button :status, 1 %>
   </div>
   
   <div class="actions">

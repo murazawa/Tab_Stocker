@@ -2,7 +2,6 @@ class LinkGroupsController < ApplicationController
   
   def create
     @link_group = LinkGroup.new(link_group_params)
-    # binding.pry
     if @link_group.save!
       redirect_back(fallback_location: root_path)
     else

@@ -1,7 +1,7 @@
 <h1>あなたのリンク集</h1>
 
 <%= form_with model: @my_link, url: my_links_path, method: :POST, local: true do |f| %>
-<%#= f.hidden_field :my_link_id, value: @my_link.id %>
+<%#= f.hidden_field :status %>
   <div class="field">
     <%= f.label :"タイトル" %>
     <%= f.text_field :title, autofocus: true %>
@@ -14,12 +14,12 @@
   
   <div class="field">
     <%= f.label :"公開" %>
-    <%= f.radio_button :status_id, 0, checked: "checked" %>
+    <%= f.radio_button :status, 0, checked: "checked" %>
   </div>
   
   <div class="field">
     <%= f.label :"非公開" %>
-    <%= f.radio_button :status_id, 1 %>
+    <%= f.radio_button :status, 1 %>
   </div>
   
   <div class="actions">
@@ -31,7 +31,7 @@
 <ul>
   <li><%= link_to my_link_path(link) do %><%= link.title %><% end %></li>
   <li><%= link.description %></li>
-  <li><%= link.status_id %></li>
+  <li><%= link.status %></li>
   <li><%= link_to "編集する", edit_my_link_path(link) %></li>
   <li><%= link_to "削除する", my_link_path(link), method: :DELETE %></li>
 </ul>

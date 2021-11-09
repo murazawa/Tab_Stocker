@@ -4,7 +4,7 @@ class CreateMyLinks < ActiveRecord::Migration[6.1]
       t.integer :user_id
       t.string :title, null:false
       t.string :description, null:false
-      t.integer :status_id, :default => 0
+      t.integer :status, :default => 0
 
       t.timestamps
     end
