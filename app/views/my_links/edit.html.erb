@@ -1,4 +1,4 @@
-<%= form_with model: @link, url: my_link_path, method: :PATCH, local: true do |f| %>
+<%= form_with model: @my_link, url: my_link_path, method: :PATCH, local: true do |f| %>
   <div class="field">
     <%= f.label :"タイトル" %>
     <%= f.text_field :title, autofocus: true %>
@@ -8,8 +8,19 @@
     <%= f.label :"説明" %>
     <%= f.text_field :description, autofocus: true %>
   </div>
-
+  
+  <div class="field">
+    <%= f.label :"公開" %>
+    <%= f.radio_button :status, :release %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :"非公開" %>
+    <%= f.radio_button :status, :staging %>
+  </div>
+  
   <div class="actions">
     <%= f.submit "リンクタブ集を編集する" %>
   </div>
+
 <% end %>

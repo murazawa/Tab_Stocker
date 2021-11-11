@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'
   }
-  resources :my_links, only: [:index, :show, :edit, :create, :update, :destroy]
-  resources :link_groups, only: [:show, :create, :update, :destroy]
+  get 'my_links/link_edit' => 'my_links#link_edit'
+  resources :my_links, only: [:index, :show, :edit, :create, :update, :destroy] do
+    get 'group_edit' => 'my_links#group_edit'
+  end
+  resources :link_groups, only: [:edit, :create, :update, :destroy]
 end

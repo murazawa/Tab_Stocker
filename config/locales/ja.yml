@@ -1,0 +1,6 @@
+ja:
+  enums:
+    my_link:
+      status:
+        release: "公開"
+        staging: "非公開"

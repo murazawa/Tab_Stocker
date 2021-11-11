@@ -20,6 +20,7 @@ gem 'devise-i18n'
 gem 'rinku'
 gem 'webpacker', '~> 4.0'
 gem 'bootstrap'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'byebug', platform: :mri
