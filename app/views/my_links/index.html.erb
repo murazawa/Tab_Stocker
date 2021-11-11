@@ -14,12 +14,12 @@
   
   <div class="field">
     <%= f.label :"公開" %>
-    <%= f.radio_button :status, 0, checked: "checked" %>
+    <%= f.radio_button :status, :release, checked: "checked" %>
   </div>
   
   <div class="field">
     <%= f.label :"非公開" %>
-    <%= f.radio_button :status, 1 %>
+    <%= f.radio_button :status, :staging %>
   </div>
   
   <div class="actions">
@@ -31,7 +31,7 @@
 <ul>
   <li><%= link_to my_link_path(link) do %><%= link.title %><% end %></li>
   <li><%= link.description %></li>
-  <li><%= link.status %></li>
+  <li><%= I18n.t("enums.my_link.status.#{link.status}") %></li>
   <li><%= link_to "編集する", edit_my_link_path(link) %></li>
   <li><%= link_to "削除する", my_link_path(link), method: :DELETE %></li>
 </ul>

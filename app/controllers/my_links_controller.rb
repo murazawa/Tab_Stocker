@@ -14,6 +14,11 @@ class MyLinksController < ApplicationController
   def edit
     @my_link = MyLink.find(params[:id])
   end
+  
+  def group_edit
+    
+    
+  end
 
   def create
     @my_link = MyLink.new(my_link_params)

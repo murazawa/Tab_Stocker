@@ -11,12 +11,12 @@
   
   <div class="field">
     <%= f.label :"公開" %>
-    <%= f.radio_button :status, 0 %>
+    <%= f.radio_button :status, :release %>
   </div>
   
   <div class="field">
     <%= f.label :"非公開" %>
-    <%= f.radio_button :status, 1 %>
+    <%= f.radio_button :status, :staging %>
   </div>
   
   <div class="actions">
