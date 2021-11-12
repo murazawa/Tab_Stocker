@@ -1,9 +1,4 @@
 class LinkGroupsController < ApplicationController
-  before_action :set_my_link
-  def edit
-    @link_group = LinkGroup.find(params[:id])
-    @my_link
-  end
   
   def create
     @link_group = LinkGroup.new(link_group_params)
@@ -16,7 +11,7 @@ class LinkGroupsController < ApplicationController
   
   def update
     @link_group = LinkGroup.find(params[:id])
-    @link_group.update(link_group_params)
+    @link_group.update(group_params)
     redirect_to my_link_path(@my_link)
   end
   
@@ -32,6 +27,10 @@ class LinkGroupsController < ApplicationController
     params.require(:link_group).permit(:url, :url_title, :my_link_id)
   end
   
+  def group_params
+    params.permit(:url, :url_title, :my_link_id)
+  end
+
   def set_my_link
     @my_link = MyLink.find(params[:id])
   end

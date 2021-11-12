@@ -25,7 +25,7 @@
             <%= Rinku.auto_link(link_group.url, :all, 'target="_blank"').html_safe %>
           <% end %>
       </li>
-      <li><%= link_to "編集する", my_link_group_edit_path(link_group) %></li>
+
       <li><%= link_to "削除する", link_group_path(link_group), method: :DELETE %></li>
     </ul>
   <% end %>
