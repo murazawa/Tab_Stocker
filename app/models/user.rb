@@ -3,4 +3,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :my_links, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 end
