@@ -3,3 +3,4 @@ class TabCollectionsController < ApplicationController
     @all_links = MyLink.where(status: 0)
   end
 end
+

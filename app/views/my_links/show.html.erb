@@ -28,10 +28,24 @@
       <li><%= link_to "削除する", link_group_path(link_group), method: :DELETE %></li>
     </ul>
   <% end %>
-  [Ctrl]キーを押しながらリンクをクリックする
+    [Ctrl]キーを押しながらリンクをクリックする
   マウスのホイールボタンでリンクをクリックする
   リンクを右クリックし、「新しいタブで開く」をクリックする
   ⌘押しながらクリック
+
+    <% if @my_link.favorited_by?(current_user) %>
+    <p>
+      <%= link_to my_link_favorites_path(@my_link), method: :delete do %>
+        ♥<%= @my_link.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to my_link_favorites_path(@my_link), method: :post do %>
+        ♡<%= @my_link.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% end %>
 
 <% else %>
 
@@ -51,4 +65,17 @@
   リンクを右クリックし、「新しいタブで開く」をクリックする
   ⌘押しながらクリック
 
+  <% if @my_link.favorited_by?(current_user) %>
+  <p>
+    <%= link_to my_link_favorites_path(@my_link), method: :delete do %>
+      ♥<%= @my_link.favorites.count %> いいね
+    <% end %>
+  </p>
+  <% else %>
+  <p>
+    <%= link_to my_link_favorites_path(@my_link), method: :post do %>
+      ♡<%= @my_link.favorites.count %> いいね
+    <% end %>
+  </p>
+  <% end %>
 <% end %>
