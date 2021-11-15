@@ -33,21 +33,12 @@
   リンクを右クリックし、「新しいタブで開く」をクリックする
   ⌘押しながらクリック
 
-    <% if @my_link.favorited_by?(current_user) %>
-    <p>
-      <%= link_to my_link_favorites_path(@my_link), method: :delete do %>
-        ♥<%= @my_link.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to my_link_favorites_path(@my_link), method: :post do %>
-        ♡<%= @my_link.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% end %>
+<%= render 'favorites/fav', my_link: @my_link %>
 
 <% else %>
+
+
+
 
   <% @my_link.link_groups.each do |link_group| %>
     <ul>
@@ -64,18 +55,8 @@
   マウスのホイールボタンでリンクをクリックする
   リンクを右クリックし、「新しいタブで開く」をクリックする
   ⌘押しながらクリック
+  
+  ほかユーザ
+<%= render 'favorites/fav', my_link: @my_link %>
 
-  <% if @my_link.favorited_by?(current_user) %>
-  <p>
-    <%= link_to my_link_favorites_path(@my_link), method: :delete do %>
-      ♥<%= @my_link.favorites.count %> いいね
-    <% end %>
-  </p>
-  <% else %>
-  <p>
-    <%= link_to my_link_favorites_path(@my_link), method: :post do %>
-      ♡<%= @my_link.favorites.count %> いいね
-    <% end %>
-  </p>
-  <% end %>
 <% end %>
