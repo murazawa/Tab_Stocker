@@ -7,7 +7,7 @@
         <% if user_signed_in? %>
           <li><%= link_to "マイページ", my_links_path, class:"nav-link" %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-link" %></li>
-          <li><%= link_to "いいね一覧", my_links_path, class:"nav-link" %></li>
+          <li><%= link_to "いいね一覧", my_link_favorite_links_path(current_user), class:"nav-link" %></li>
         <% else %>
           <li><%= link_to "新規登録", new_user_registration_path, class:"nav-link" %></li>
           <li><%= link_to "ログイン", new_user_session_path, class:"nav-link" %></li>

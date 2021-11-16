@@ -15,7 +15,9 @@ class MyLinksController < ApplicationController
     @my_link = MyLink.find(params[:id])
   end
   
+  def favorite_links
 
+  end
 
   def create
     @my_link = MyLink.new(my_link_params)

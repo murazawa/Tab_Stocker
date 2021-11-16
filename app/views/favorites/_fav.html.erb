@@ -1,13 +1,36 @@
+<% if my_link.link_groups.empty? %>
+<p class="center">ここにはまだ投稿がされていません</p>
+<% else %>
+  <% my_link.link_groups.each do |link_group| %>
+    <ul>
+      <li><%= link_group.url_title %></li>
+      <li><% if link_group.url.nil? %>
+            <%= link_group.url %>
+          <% else %>
+            <%= Rinku.auto_link(link_group.url, :all, 'target="_blank"').html_safe %>
+          <% end %>
+      </li>
+    </ul>
+  <% end %>
     <% if my_link.favorited_by?(current_user) %>
     <p>
       <%= link_to my_link_favorites_path(my_link), method: :delete, remote: true do %>
-        ♥<%= my_link.favorites.count %> いいね
+        ★<%= my_link.favorites.count %> ストックを解除する
       <% end %>
     </p>
     <% else %>
     <p>
       <%= link_to my_link_favorites_path(my_link), method: :post, remote: true do %>
-        ♡<%= my_link.favorites.count %> いいね
+        ☆<%= my_link.favorites.count %> ストックを追加する
       <% end %>
     </p>
     <% end %>
+    
+  <h2>~タブだけ追加する方法~</h2>
+  <ul>
+    <li>・[Ctrl]キーを押しながらリンクをクリックする</li>
+    <li>・マウスのホイールボタンでリンクをクリックする</li>
+    <li>・リンクを右クリックし、「新しいタブで開く」をクリックする</li>
+    <li>・⌘押しながらクリック</li>
+  </ul>
+<% end %>

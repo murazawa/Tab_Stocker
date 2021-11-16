@@ -16,48 +16,15 @@
       <%= f.submit "リンクタブを追加する" %>
     </div>
   <% end %>
-  <% @my_link.link_groups.each do |link_group| %>
-    <ul>
-      <li><%= link_group.url_title %></li>
-      <li><% if link_group.url.nil? %>
-            <%= link_group.url %>
-          <% else %>
-            <%= Rinku.auto_link(link_group.url, :all, 'target="_blank"').html_safe %>
-          <% end %>
-      </li>
-      <li><%= link_to "削除する", link_group_path(link_group), method: :DELETE %></li>
-    </ul>
-  <% end %>
-    [Ctrl]キーを押しながらリンクをクリックする
-  マウスのホイールボタンでリンクをクリックする
-  リンクを右クリックし、「新しいタブで開く」をクリックする
-  ⌘押しながらクリック
+
 <div id="favorites_<%= @my_link.id %>">
   <%= render 'favorites/fav', my_link: @my_link %>
 </div>
 <% else %>
 
 
-
-
-  <% @my_link.link_groups.each do |link_group| %>
-    <ul>
-      <li><%= link_group.url_title %></li>
-      <li><% if link_group.url.nil? %>
-            <%= link_group.url %>
-          <% else %>
-            <%= Rinku.auto_link(link_group.url, :all, 'target="_blank"').html_safe %>
-          <% end %>
-      </li>
-    </ul>
-  <% end %>
-  [Ctrl]キーを押しながらリンクをクリックする
-  マウスのホイールボタンでリンクをクリックする
-  リンクを右クリックし、「新しいタブで開く」をクリックする
-  ⌘押しながらクリック
-  
-  ほかユーザ
 <div id="favorites_<%= @my_link.id %>">
   <%= render 'favorites/fav', my_link: @my_link %>
 </div>
+  ほかユーザ
 <% end %>
