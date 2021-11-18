@@ -3,7 +3,7 @@ class MyLinksController < ApplicationController
   
   def index
     @my_link = MyLink.new
-    @my_links = current_user.my_links
+    @my_links = current_user.my_links.page(params[:page]).per(8)
   end
   
   def show
@@ -23,9 +23,11 @@ class MyLinksController < ApplicationController
   def create
     @my_link = MyLink.new(my_link_params)
     if @my_link.save
+      flash[:notice] = "投稿しました"
       redirect_to my_links_path
     else
       @my_links = current_user.my_links
+      flash[:alert] = "失敗しました"
       render :index
     end
   end
@@ -38,6 +40,7 @@ class MyLinksController < ApplicationController
 
   def destroy
     @my_links = MyLink.find(params[:id])
+    flash[:alert] = "削除しました"
     @my_links.destroy
     redirect_back(fallback_location: root_path)
   end

@@ -7,6 +7,9 @@
   <li class="right"><div class="btn btn-outline-dark disabled"><%= I18n.t("enums.my_link.status.#{link.status}") %></div> <%= link_to "編集する", edit_my_link_path(link), class: 'btn btn-outline-success' %> <%= link_to "削除する", my_link_path(link), method: :DELETE, class: 'btn btn-outline-danger' %></li>
 </ul>
 <% end %>
+
+<%= paginate @my_links %>
+
 <div class="border"></div>
 <%= form_with model: @my_link, url: my_links_path, method: :POST, local: true do |f| %>
   <div class="mb-3">
@@ -33,3 +36,4 @@
     <%= f.submit "追加する", class: 'btn btn-primary' %>
   </div>
 <% end %>
+

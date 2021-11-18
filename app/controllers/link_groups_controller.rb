@@ -2,9 +2,11 @@ class LinkGroupsController < ApplicationController
   
   def create
     @link_group = LinkGroup.new(link_group_params)
-    if @link_group.save!
+    if @link_group.save
+      flash[:notice] = "投稿しました"
       redirect_back(fallback_location: root_path)
     else
+      flash[:alert] = "失敗しました"
       root_path
     end
   end
@@ -12,6 +14,7 @@ class LinkGroupsController < ApplicationController
   def destroy
     @my_link = LinkGroup.find(params[:id])
     @my_link.destroy
+    flash[:alert] = "削除しました"
     redirect_back(fallback_location: root_path)
   end
 
