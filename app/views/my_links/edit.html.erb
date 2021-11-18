@@ -1,5 +1,5 @@
 <div class="border"></div>
-<%= form_with model: @my_link, url: my_link_path, method: :PATCH, local: true do |f| %>
+<%= form_with model: @my_link, url: my_links_path, method: :POST, local: true do |f| %>
   <div class="mb-3">
     <%= f.label :"タイトル" %>
     <%= f.text_field :title, autofocus: true, placeholder: "タイトルを入力", class: 'form-control' %>
@@ -24,4 +24,3 @@
     <%= f.submit "リンクタブ集を追加する", class: 'btn btn-primary' %>
   </div>
 <% end %>
-<div class="border"></div>

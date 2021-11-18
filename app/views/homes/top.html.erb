@@ -1,9 +1,13 @@
 <div class="center">
-<h1>Windowとそこに溜まったタブを整理しましょう！</h1></br>
-<p>勉強、仕事、趣味、調べ事でタブを溜め込んでませんか？</p>
-<p>残していたタブを探すことに時間をかけていませんか？</p>
-<p>でも、後でまた使うかもしれない...と思いタブを残していませんか？</p>
-<p>このアプリを使えば、溜め込んだタブを管理しあなたのウィンドウをスッキリ整理することができます！</p>
+  <h1>Windowとそこに溜まったタブを整理しましょう！</h1></br>
+  <p>勉強、仕事、趣味、調べ事でタブを溜め込んでませんか？</p>
+  <p>残していたタブを探すことに時間をかけていませんか？</p>
+  <p>でも、後でまた使うかもしれない...と思いタブを残していませんか？</p>
+  <p>このアプリを使えば、溜め込んだタブを管理しあなたのウィンドウをスッキリ整理することができます！</p>
+  <div><%= image_tag 'PC.png', size: "910x540", class: "pc-imag" %></div>
+  <div class="border"></div>
+  <p>ログインすればあなたのＰＣも整理する事ができます！</p>
+  <p><%= link_to "新規登録", new_user_registration_path, class: 'btn btn-outline-primary btn-lg' %>　<%= link_to "ログイン", new_user_session_path, class: 'btn btn-outline-success btn-lg' %></p>
+  <p>非ログインでは閲覧のみできます</p>
+  <p><%= link_to "みんなが投稿したリンク集を見る", tab_collections_path, class: 'btn btn-outline-info btn-lg' %></p>
 </div>
-<%= link_to "みんなが投稿したリンク集", tab_collections_path %><%= link_to "みんなが投稿したリンク集", tab_collections_path %>
-<%= link_to "みんなが投稿したリンク集", tab_collections_path %><%= link_to "みんなが投稿したリンク集", tab_collections_path %>

@@ -1,13 +1,13 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <h1><%= link_to "トップページ", root_path, class:"navbar-brand" %></h1>
+      <h1><span class="titled"><%= link_to "Tab Stocker", root_path, class:"navbar-brand" %></span></h1>
       
       <ul class="navbar-nav justify-content-end">
         <% if user_signed_in? %>
           <li><%= link_to "マイページ", my_links_path, class:"nav-link" %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-link" %></li>
-          <li><%= link_to "いいね一覧", my_link_favorite_links_path(current_user), class:"nav-link" %></li>
+          <li><%#= link_to "いいね一覧", my_link_favorite_links_path(current_user), class:"nav-link" %></li>
         <% else %>
           <li><%= link_to "新規登録", new_user_registration_path, class:"nav-link" %></li>
           <li><%= link_to "ログイン", new_user_session_path, class:"nav-link" %></li>

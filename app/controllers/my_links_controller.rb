@@ -1,5 +1,5 @@
 class MyLinksController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit, :favorite_links, :update, :destroy]
   
   def index
     @my_link = MyLink.new
