@@ -1,32 +1,34 @@
 <% if my_link.link_groups.empty? %>
 <p class="center">ここにはまだ投稿がされていません</p>
 <% else %>
+<h2 class="center"><%= my_link.title %>のリンク集</h2>
   <% my_link.link_groups.each do |link_group| %>
     <ul>
-      <li><%= link_group.url_title %></li>
+      <li><strong><%= link_group.url_title %></strong></li>
       <li><% if link_group.url.nil? %>
-            <%= link_group.url %>
+            <%= link_group.url %>　<%= link_to "削除", link_group_path(link_group), method: :delete, class: 'btn btn-outline-danger' %>
           <% else %>
             <%= Rinku.auto_link(link_group.url, :all, 'target="_blank"').html_safe %>
+            <div class="right"><%= link_to "削除", link_group_path(link_group), method: :delete, class: 'btn btn-outline-danger' %></div>
           <% end %>
-      </li>
+      </li></br>
     </ul>
   <% end %>
     <% if my_link.favorited_by?(current_user) %>
-    <p>
-      <%= link_to my_link_favorites_path(my_link), method: :delete, remote: true do %>
-        ★<%= my_link.favorites.count %> ストックを解除する
+    <p class="right">
+      <%= link_to my_link_favorites_path(my_link), method: :delete, remote: true, class: 'btn btn-primary' do %>
+        ★<%= my_link.favorites.count %> 追加済み
       <% end %>
     </p>
     <% else %>
-    <p>
-      <%= link_to my_link_favorites_path(my_link), method: :post, remote: true do %>
-        ☆<%= my_link.favorites.count %> ストックを追加する
+    <p class="right">
+      <%= link_to my_link_favorites_path(my_link), method: :post, remote: true, class: 'btn btn-primary' do %>
+        ☆<%= my_link.favorites.count %> 追加する
       <% end %>
     </p>
     <% end %>
     
-  <h2>~タブだけ追加する方法~</h2>
+  <h3>~画面そのままでタブだけ追加する方法~</h3>
   <ul>
     <li>・[Ctrl]キーを押しながらリンクをクリックする</li>
     <li>・マウスのホイールボタンでリンクをクリックする</li>

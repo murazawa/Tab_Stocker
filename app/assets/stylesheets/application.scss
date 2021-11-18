@@ -36,6 +36,12 @@ ul {
 	padding: 0;
 	list-style: none;
 }
+
+a {
+    color: #27ae60;
+    text-decoration: none;
+}
+
 #main {
     width: 80%;
     margin: 0 auto;
@@ -43,5 +49,19 @@ ul {
 }
 
 .center {
-    text-align: center
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.border {
+    margin: 2rem 0;
+    border: solid 3px #27ae60;
+}
+
+.btn.btn-primary {
+    background-color: #27ae60;
+    border-color: #27ae60;
 }

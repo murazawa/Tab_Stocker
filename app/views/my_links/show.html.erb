@@ -1,25 +1,26 @@
 <% if user_signed_in? && current_user.id == @my_link.user.id %>
-
-  <%= form_with model: @link_group, url: link_groups_path, method: :POST, local: true do |f| %>
-    <%= f.hidden_field :my_link_id, :value => @my_link.id %>
-    <div class="field">
-      <%= f.label :"リンクタイトル" %>
-      <%= f.text_field :url_title, autofocus: true %>
-    </div>
-  
-    <div class="field">
-      <%= f.label :"ストックするURL" %>
-      <%= f.text_field :url, autofocus: true %>
-    </div>
-  
-    <div class="actions">
-      <%= f.submit "リンクタブを追加する" %>
-    </div>
-  <% end %>
-
 <div id="favorites_<%= @my_link.id %>">
   <%= render 'favorites/fav', my_link: @my_link %>
 </div>
+
+<div class="border"></div>
+
+  <%= form_with model: @link_group, url: link_groups_path, method: :POST, local: true do |f| %>
+    <%= f.hidden_field :my_link_id, :value => @my_link.id %>
+    <div class="mb-3">
+      <%= f.label :"リンクタイトル" %>
+      <%= f.text_field :url_title, placeholder: "タイトルを入力", class: 'form-control' %>
+    </div>
+  
+    <div class="mb-3">
+      <%= f.label :"ストックするURL" %>
+      <%= f.text_field :url, placeholder: "URLを入力", class: 'form-control' %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit "追加する", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
 <% else %>
 
 

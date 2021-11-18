@@ -8,13 +8,7 @@ class LinkGroupsController < ApplicationController
       root_path
     end
   end
-  
-  def update
-    @link_group = LinkGroup.find(params[:id])
-    @link_group.update(group_params)
-    redirect_to my_link_path(@my_link)
-  end
-  
+
   def destroy
     @my_link = LinkGroup.find(params[:id])
     @my_link.destroy
@@ -25,13 +19,5 @@ class LinkGroupsController < ApplicationController
   private
   def link_group_params
     params.require(:link_group).permit(:url, :url_title, :my_link_id)
-  end
-  
-  def group_params
-    params.permit(:url, :url_title, :my_link_id)
-  end
-
-  def set_my_link
-    @my_link = MyLink.find(params[:id])
   end
 end
