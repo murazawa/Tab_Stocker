@@ -1,0 +1,59 @@
+<% if my_link.link_groups.empty? %>
+  <p class="center">ここにはまだ投稿がされていません</p>
+<% elsif user_signed_in? %>
+  <h2 class="center"><%= my_link.title %>のリンク集</h2>
+  <% my_link.link_groups.each do |link_group| %>
+    <ul>
+      <li><strong><%= link_group.url_title %></strong></li>
+      <li>
+        <% if link_group.url.nil? %>
+          <%= link_group.url %>　<%= link_to "削除", link_group_path(link_group), method: :delete, class: 'btn btn-outline-danger' %>
+        <% else %>
+          <%= Rinku.auto_link(link_group.url, :all, 'target="_blank"').html_safe %>
+          <div class="right"><%= link_to "削除", link_group_path(link_group), method: :delete, class: 'btn btn-outline-danger' %></div>
+        <% end %>
+      </li></br>
+    </ul>
+  <% end %>
+  <% if my_link.favorited_by?(current_user) %>
+    <p class="right">
+      <%= link_to my_link_favorites_path(my_link), method: :delete, remote: true, class: 'btn btn-primary' do %>
+        ★<%= my_link.favorites.count %> 追加済み
+      <% end %>
+    </p>
+  <% else %>
+    <p class="right">
+      <%= link_to my_link_favorites_path(my_link), method: :post, remote: true, class: 'btn btn-primary' do %>
+        ☆<%= my_link.favorites.count %> 追加する
+      <% end %>
+    </p>
+  <% end %>
+    
+  <h3>~画面そのままでタブだけ追加する方法~</h3>
+  <ul>
+    <li>・[Ctrl]キーを押しながらリンクをクリックする</li>
+    <li>・マウスのホイールボタンでリンクをクリックする</li>
+    <li>・リンクを右クリックし、「新しいタブで開く」をクリックする</li>
+    <li>・⌘押しながらクリック</li>
+  </ul>
+<% else %>
+  <h2 class="center"><%= my_link.title %>のリンク集</h2>
+  <% my_link.link_groups.each do |link_group| %>
+    <ul>
+      <li><strong><%= link_group.url_title %></strong></li>
+      <li>
+        <% if link_group.url.nil? %>
+        <% else %>
+          <%= Rinku.auto_link(link_group.url, :all, 'target="_blank"').html_safe %>
+        <% end %>
+      </li></br>
+    </ul>
+  <% end %>
+  <h3>~画面そのままでタブだけ追加する方法~</h3>
+  <ul>
+    <li>・[Ctrl]キーを押しながらリンクをクリックする</li>
+    <li>・マウスのホイールボタンでリンクをクリックする</li>
+    <li>・リンクを右クリックし、「新しいタブで開く」をクリックする</li>
+    <li>・⌘押しながらクリック</li>
+  </ul>
+<% end %>

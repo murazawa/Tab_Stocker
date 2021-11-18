@@ -1,0 +1,19 @@
+<h1 class="center">みんなが作ったタブ集</h1>
+<% @all_links.each do |link| %>
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th scope="col"><%= link_to my_link_path(link) do %><%= link.title %><% end %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= link.description %></td>
+    </tr>
+    <tr>
+      <td class="right">★<%= link.favorites.count %> ストックされている数</td>
+    </tr>
+  </tbody>
+</table>
+<% end %>

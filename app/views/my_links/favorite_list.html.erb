@@ -1,0 +1,21 @@
+<% if @favorite_list.present? %>
+  <% @favorite_list.each do |fav| %>
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th scope="col"><%= link_to my_link_path(fav) do %><%= fav.title %><% end %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= fav.description %></td>
+    </tr>
+    <tr>
+      <td class="right">★<%= fav.favorites.count %> ストックされている数</td>
+    </tr>
+  </tbody>
+</table>
+  <% end %>
+<% end %>
+

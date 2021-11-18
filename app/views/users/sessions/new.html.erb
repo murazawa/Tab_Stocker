@@ -12,9 +12,8 @@
   </div>
 
 
-  <div class="actions">
-    <%= f.submit "ログイン" %>
+  <div class="actions right">
+    <%= render "users/shared/links" %>
+    <%= f.submit "ログイン", class: 'btn btn-primary' %>
   </div>
 <% end %>
-
-<%= render "users/shared/links" %>

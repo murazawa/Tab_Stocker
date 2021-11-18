@@ -1,5 +1,5 @@
 class MyLinksController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit, :favorite_links, :update, :destroy]
   
   def index
     @my_link = MyLink.new
@@ -15,9 +15,9 @@ class MyLinksController < ApplicationController
     @my_link = MyLink.find(params[:id])
   end
   
-  def group_edit
-    
-    
+  def favorite_list
+    favorites = Favorite.where(user_id: current_user.id).pluck(:my_link_id)
+    @favorite_list = MyLink.find(favorites)
   end
 
   def create
