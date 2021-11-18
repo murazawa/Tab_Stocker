@@ -4,6 +4,8 @@ class MyLinksController < ApplicationController
   def index
     @my_link = MyLink.new
     @my_links = current_user.my_links.page(params[:page]).per(8)
+    @q = MyLink.ransack(params[:q])
+    @searches = @q.result(distinct: true)
   end
   
   def show
@@ -44,9 +46,18 @@ class MyLinksController < ApplicationController
     @my_links.destroy
     redirect_back(fallback_location: root_path)
   end
+  
+  def search
+    @q = MyLink.search(search_params)
+    @searches = @q.result(distinct: true)
+  end
 
   private
   def my_link_params
     params.require(:my_link).permit(:title, :description, :status, :my_link_id).merge(user_id: current_user.id)
+  end
+  
+  def search_params
+    params.require(:q).permit!
   end
 end

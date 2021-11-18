@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     get 'favorite_list'
   end
   resources :link_groups, only: [:create, :update, :destroy]
+  get 'search' => 'my_links#search'
 end
