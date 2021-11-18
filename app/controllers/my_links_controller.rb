@@ -15,8 +15,9 @@ class MyLinksController < ApplicationController
     @my_link = MyLink.find(params[:id])
   end
   
-  def favorite_links
-
+  def favorite_list
+    favorites = Favorite.where(user_id: current_user.id).pluck(:my_link_id)
+    @favorite_list = MyLink.find(favorites)
   end
 
   def create
