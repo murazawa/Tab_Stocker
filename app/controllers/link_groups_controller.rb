@@ -7,7 +7,7 @@ class LinkGroupsController < ApplicationController
       redirect_back(fallback_location: root_path)
     else
       flash[:alert] = "失敗しました"
-      root_path
+      redirect_back(fallback_location: root_path)
     end
   end
 

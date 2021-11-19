@@ -30,6 +30,9 @@ class MyLinksController < ApplicationController
     else
       @my_links = current_user.my_links
       flash[:alert] = "失敗しました"
+      @my_links = current_user.my_links.page(params[:page]).per(8)
+      @q = current_user.my_links.ransack(params[:q])
+      @searches = @q.result.page(params[:page]).per(8)
       render :index
     end
   end
