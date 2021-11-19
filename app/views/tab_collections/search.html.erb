@@ -1,5 +1,5 @@
 <h1 class="center">みんなが作ったタブ集</h1>
-<% @all_links.each do |link| %>
+<% @searches.each do |link| %>
 <table class="table table-borderless">
   <thead>
     <tr>
@@ -17,6 +17,4 @@
   </tbody>
 </table>
 <% end %>
-<%= paginate @all_links %>
-
-<%= render 'searches' %>
+<%= paginate @searches %>

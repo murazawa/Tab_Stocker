@@ -1,7 +1,8 @@
-<% @my_links.each do |link| %>
+<h1 class="center">あなたのリンク集</h1>
+<% @searches.each do |link| %>
 <ul>
   <li><strong><%= link_to my_link_path(link) do %><%= link.title %><% end %></strong></li>
   <li><%= link.description %></li>
-  <li class="right"><div class="btn btn-outline-dark disabled"><%= I18n.t("enums.my_link.status.#{link.status}") %></div> <%= link_to "編集する", edit_my_link_path(link), class: 'btn btn-outline-success' %> <%= link_to "削除する", my_link_path(link), method: :DELETE, class: 'btn btn-outline-danger' %></li>
+  <li class="right"><div class="btn btn-outline-dark disabled"><%= I18n.t("enums.my_link.status.#{link.status}") %></div></li>
 </ul>
 <% end %>

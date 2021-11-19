@@ -1,11 +1,11 @@
 class MyLinksController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :favorite_links, :update, :destroy]
+  before_action :authenticate_user!
   
   def index
     @my_link = MyLink.new
     @my_links = current_user.my_links.page(params[:page]).per(8)
-    @q = MyLink.ransack(params[:q])
-    @searches = @q.result(distinct: true)
+    @q = current_user.my_links.ransack(params[:q])
+    @searches = @q.result.page(params[:page]).per(8)
   end
   
   def show
@@ -48,8 +48,8 @@ class MyLinksController < ApplicationController
   end
   
   def search
-    @q = MyLink.search(search_params)
-    @searches = @q.result(distinct: true)
+    @q = current_user.my_links.search(search_params)
+    @searches = @q.result.page(params[:page]).per(8)
   end
 
   private
@@ -58,6 +58,6 @@ class MyLinksController < ApplicationController
   end
   
   def search_params
-    params.require(:q).permit!
+    params.require(:q).permit(:title_cont)
   end
 end

@@ -5,7 +5,6 @@ class MyLink < ApplicationRecord
 
 
   validates :title, presence: true
-  validates :description, presence: true
 
   enum status: { release: 0, staging: 1 }
   

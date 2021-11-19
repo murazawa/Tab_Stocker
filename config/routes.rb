@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   end
   resources :link_groups, only: [:create, :update, :destroy]
   get 'search' => 'my_links#search'
+  get 'searches' => 'tab_collections#search'
+  
 end
