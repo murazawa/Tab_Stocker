@@ -21,8 +21,6 @@ gem 'rinku'
 gem 'webpacker', '~> 4.0'
 gem 'bootstrap'
 gem 'rails-i18n'
-gem "aws-sdk-s3", require: false
-gem "figaro"
 
 group :development, :test do
   gem 'byebug', platform: :mri
