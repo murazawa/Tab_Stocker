@@ -1,5 +1,8 @@
-<%= search_form_for(@q, url:searches_path) do |f| %>
-  <%= f.label :title_cont %>
-  <%= f.search_field :title_cont %>
-  <%= f.submit %>
-<% end %>
+<table class="d-flex">
+  <%= search_form_for(@q, url:searches_path) do |f| %>
+    <tr>
+      <th><%= f.search_field :title_cont, placeholder: "検索...", class: "form-control" %></th>
+      <td><%= f.submit class: "btn btn-outline-success flex-shrink-0" %></td>
+    </tr>
+  <% end %>
+</table>

@@ -13,7 +13,7 @@
 <div class="border"></div>
 <%= form_with model: @my_link, url: my_links_path, method: :POST, local: true do |f| %>
   <div class="mb-3">
-    <%= f.label :title %>
+    <%= f.label :"タイトル" %>
     <%= f.text_field :title, placeholder: "タイトルを入力", class: 'form-control' %>
   </div>
 
